@@ -1,0 +1,7 @@
+*.[aod]
+*.DS_Store
+.DS_Store
+*Thumbs.db
+npm-debug.log
+/ios/**/*xcuserdata*
+/ios/**/*xcshareddata*
