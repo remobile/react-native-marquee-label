@@ -14,6 +14,7 @@ come soon
 ## Usage
 
 ### Example
+```js
 'use strict';
 
 var React = require('react-native');
@@ -57,10 +58,9 @@ var styles = StyleSheet.create({
     }
 });
 ```
-
 ### Screencasts
 
-![loading](https://github.com/remobile/react-native-marquee-label/blob/master/screencasts/loading.gif)
+![loading](https://github.com/remobile/react-native-marquee-label/blob/master/screencasts/demo.gif)
 
 ### Props
 - `text : PropTypes.string.isRequired`
