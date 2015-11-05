@@ -1,4 +1,4 @@
-# React Native RefreshableListView
+# React Native MarqueeLabel (remobile)
 A marquee label for react-native
 
 ## Installation
