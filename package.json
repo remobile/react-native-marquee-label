@@ -1,5 +1,5 @@
 {
-    "name": "react-native-marquee-label",
+    "name": "@remobile/react-native-marquee-label",
         "version": "1.0.0",
         "description": "A marquee label for react-native",
         "main": "index.js",
