@@ -15,7 +15,7 @@ npm install @remobile/react-native-marquee-label --save
 ```gradle
 ...
 include ':react-native-marquee-label'
-project(':react-native-marquee-label').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-marquee-label/android/RCTMarqueeLabel')
+project(':react-native-marquee-label').projectDir = new File(rootProject.projectDir, '../node_modules/@remobile/react-native-marquee-label/android/RCTMarqueeLabel')
 ```
 
 * In `android/app/build.gradle`
