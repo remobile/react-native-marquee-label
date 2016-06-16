@@ -6,11 +6,9 @@
 */
 'use strict';
 
-var React = require('react-native');
-var {
-    PropTypes,
-    requireNativeComponent
-} = React;
+
+import React, {Component, PropTypes} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image, requireNativeComponent} from 'react-native';
 
 var MarqueeLabel = React.createClass({
     propTypes: {
