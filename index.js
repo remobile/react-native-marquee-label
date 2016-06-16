@@ -6,22 +6,20 @@
 */
 'use strict';
 
-var React = require('react-native');
-var {
-    PropTypes,
-    requireNativeComponent
-} = React;
+
+import React, {Component, PropTypes} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image, requireNativeComponent} from 'react-native';
 
 var MarqueeLabel = React.createClass({
     propTypes: {
         text : PropTypes.string.isRequired,
-        marqueeType : PropTypes.number,
+        marqueeType : PropTypes.string,
         scrollDuration : PropTypes.number,
         fadeLength : PropTypes.number,
         leadingBuffer : PropTypes.number,
         trailingBuffer : PropTypes.number,
         textColor : PropTypes.string,
-        font: PropTypes.string
+        font: PropTypes.object
     },
     render: function() {
         return (
