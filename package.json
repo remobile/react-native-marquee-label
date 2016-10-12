@@ -1,29 +1,29 @@
 {
     "name": "@remobile/react-native-marquee-label",
-        "version": "1.0.2",
-        "description": "A marquee label for react-native",
-        "main": "index.js",
-        "author": {
-            "name": "YunJiang.Fang",
-            "email": "42550564@qq.com"
-        },
-        "license": "MIT",
-        "keywords": [
-            "react-native",
-            "react-component",
-            "ios",
-            "android",
-            "marquee",
-            "label",
-            "remobile",
-            "mobile"
-        ],
-        "homepage": "https://github.com/remobile/react-native-marquee-label",
-        "bugs": {
-            "url": "https://github.com/remobile/react-native-marquee-label/issues"
-        },
-        "repository": {
-            "type": "git",
-            "url": "git://github.com/remobile/react-native-marquee-label.git"
-        }
+    "version": "1.0.2",
+    "description": "A marquee label for react-native",
+    "main": "index.js",
+    "author": {
+        "name": "YunJiang.Fang",
+        "email": "42550564@qq.com"
+    },
+    "license": "MIT",
+    "keywords": [
+        "react-native",
+        "react-component",
+        "ios",
+        "android",
+        "marquee",
+        "label",
+        "remobile",
+        "mobile"
+    ],
+    "homepage": "https://github.com/remobile/react-native-marquee-label",
+    "bugs": {
+        "url": "https://github.com/remobile/react-native-marquee-label/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/remobile/react-native-marquee-label.git"
+    }
 }
