@@ -9,13 +9,13 @@ npm install @remobile/react-native-marquee-label --save
 ### Installation (iOS)
 * Drag RCTMarqueeLabel.xcodeproj to your project on Xcode.
 * Click on your main project file (the one that represents the .xcodeproj) select Build Phases and drag libRCTMarqueeLabel.a from the Products folder inside the RCTMarqueeLabel.xcodeproj.
-* Look for Header Search Paths and make sure it contains both $(SRCROOT)/../react-native/React as recursive.
+* Look for Header Search Paths and make sure it contains both $(SRCROOT)/../../../react-native/React as recursive.
 
 ### Installation (Android)
 ```gradle
 ...
 include ':react-native-marquee-label'
-project(':react-native-marquee-label').projectDir = new File(rootProject.projectDir, '../node_modules/@remobile/react-native-marquee-label/android/RCTMarqueeLabel')
+project(':react-native-marquee-label').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-marquee-label/android/RCTMarqueeLabel')
 ```
 
 * In `android/app/build.gradle`
@@ -28,37 +28,21 @@ dependencies {
 }
 ```
 
-* register module (in MainActivity.java)
+* register module (in MainApplication.java)
 
 ```java
-import com.remobile.marqueeLabel.*;  // <--- import
+......
+import com.remobile.marqueeLabel.RCTMarqueeLabelPackage;  // <--- import
 
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-  ......
+......
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    mReactRootView = new ReactRootView(this);
-
-    mReactInstanceManager = ReactInstanceManager.builder()
-      .setApplication(getApplication())
-      .setBundleAssetName("index.android.bundle")
-      .setJSMainModuleName("index.android")
-      .addPackage(new MainReactPackage())
-      .addPackage(new RCTMarqueeLabelPackage())              // <------ add here
-      .setUseDeveloperSupport(BuildConfig.DEBUG)
-      .setInitialLifecycleState(LifecycleState.RESUMED)
-      .build();
-
-    mReactRootView.startReactApplication(mReactInstanceManager, "ExampleRN", null);
-
-    setContentView(mReactRootView);
-  }
-
-  ......
-
+@Override
+protected List<ReactPackage> getPackages() {
+   ......
+   new RCTMarqueeLabelPackage(),            // <------ add here
+   ......
 }
+
 ```
 
 ## Usage
@@ -67,27 +51,24 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 ```js
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var {
     StyleSheet,
     View
-} = React;
+} = ReactNative;
 
-var MarqueeLabel = require('react-native-marquee-label');
+var MarqueeLabel = require('@remobile/react-native-marquee-label');
+
 module.exports = React.createClass({
     render: function() {
         return (
             <View style={styles.container}>
                 <MarqueeLabel style={styles.marqueeLabel}
-                     text="fangyunjiang is a good developer"
-                     marqueeType="MLContinuous"
-                     scrollDuration={3.0}
-                     fadeLength={0.0}
-                     leadingBuffer={0.0}
-                     trailingBuffer={50}
-                     textColor='red'
-                     font={{fontSize:80, fontWeight: 0.4}}
-                     />
+                    scrollDuration={3.0}
+                    >
+                    fangyunjiang is a good developer
+                </MarqueeLabel>
             </View>
         );
     }
@@ -102,9 +83,12 @@ var styles = StyleSheet.create({
     },
 
     marqueeLabel: {
-        backgroundColor: '#FFFFE0',
-        width:200,
-        height:140
+        backgroundColor: 'blue',
+        width:260,
+        height:200,
+        fontSize:30,
+        fontWeight:'800',
+        color:'white',
     }
 });
 ```
@@ -114,10 +98,14 @@ var styles = StyleSheet.create({
 
 ### Props
 - `text : PropTypes.string.isRequired`
-- `marqueeType : PropTypes.number`
-- `scrollDuration : PropTypes.number`
-- `fadeLength : PropTypes.number`
-- `leadingBuffer : PropTypes.number`
-- `trailingBuffer : PropTypes.number`
-- `textColor : PropTypes.string`
-- `font: PropTypes.string`
+- `scrollDuration : PropTypes.number` //seconds
+- `marqueeType : PropTypes.string` //ios
+- `fadeLength : PropTypes.number` //ios
+- `leadingBuffer : PropTypes.number` //ios
+- `trailingBuffer : PropTypes.number` //ios
+- `isRepeat : PropTypes.bool` //android
+- `startPoint : PropTypes.number` //android
+- `direction : PropTypes.number` //android
+
+### see detail use
+* https://github.com/remobile/react-native-template

@@ -192,12 +192,13 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     
     // Setup default values
     _animationCurve = UIViewAnimationOptionCurveLinear;
+    _marqueeType = MLContinuous;
     _labelize = NO;
     _holdScrolling = NO;
     _tapToScroll = NO;
     _isPaused = NO;
     _fadeLength = 0.0f;
-    _animationDelay = 1.0;
+    _animationDelay = 0.0;
     _animationDuration = 0.0f;
     _leadingBuffer = 0.0f;
     _trailingBuffer = 0.0f;
@@ -348,11 +349,11 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
             CGFloat awayLabelOffset;
             if (self.marqueeType == MLContinuous) {
                 self.homeLabelFrame = CGRectIntegral(CGRectMake(self.leadingBuffer, 0.0f, expectedLabelSize.width, self.bounds.size.height));
-                awayLabelOffset = -(self.homeLabelFrame.size.width + minTrailing);
+                awayLabelOffset = -(self.homeLabelFrame.size.width + self.bounds.size.width + minTrailing);
                 self.awayLabelFrame = CGRectIntegral(CGRectOffset(self.homeLabelFrame, awayLabelOffset, 0.0f));
             } else {
                 self.homeLabelFrame = CGRectIntegral(CGRectMake(self.bounds.size.width - (expectedLabelSize.width + self.leadingBuffer), 0.0f, expectedLabelSize.width, self.bounds.size.height));
-                awayLabelOffset = (self.homeLabelFrame.size.width + minTrailing);
+                awayLabelOffset = (self.homeLabelFrame.size.width + self.bounds.size.width + minTrailing);
                 self.awayLabelFrame = CGRectIntegral(CGRectOffset(self.homeLabelFrame, awayLabelOffset, 0.0f));
             }
             

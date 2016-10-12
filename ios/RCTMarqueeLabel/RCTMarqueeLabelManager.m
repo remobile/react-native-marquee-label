@@ -9,6 +9,7 @@
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
 #import "UIView+React.h"
+#import "RCTFont.h"
 
 #import "MarqueeLabel.h"
 
@@ -40,7 +41,19 @@ RCT_EXPORT_VIEW_PROPERTY(scrollDuration, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(fadeLength, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(leadingBuffer, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(trailingBuffer, CGFloat);
-RCT_EXPORT_VIEW_PROPERTY(textColor, UIColor);
-RCT_EXPORT_VIEW_PROPERTY(font, UIFont);
+RCT_EXPORT_VIEW_PROPERTY(animationDelay, CGFloat);
+RCT_REMAP_VIEW_PROPERTY(color, textColor, UIColor)
+RCT_CUSTOM_VIEW_PROPERTY(fontSize, NSNumber, MarqueeLabel) {
+    view.font = [RCTFont updateFont:view.font withSize:json ?: @(defaultView.font.pointSize)];
+}
+RCT_CUSTOM_VIEW_PROPERTY(fontWeight, NSString, __unused MarqueeLabel) {
+    view.font = [RCTFont updateFont:view.font withWeight:json]; // defaults to normal
+}
+RCT_CUSTOM_VIEW_PROPERTY(fontStyle, NSString, __unused MarqueeLabel) {
+    view.font = [RCTFont updateFont:view.font withStyle:json]; // defaults to normal
+}
+RCT_CUSTOM_VIEW_PROPERTY(fontFamily, NSString, MarqueeLabel) {
+    view.font = [RCTFont updateFont:view.font withFamily:json ?: defaultView.font.familyName];
+}
 
 @end

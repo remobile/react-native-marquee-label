@@ -1,31 +1,34 @@
-/*
-* (The MIT License)
-* Copyright (c) 2015-2016 YunJiang.Fang <42550564@qq.com>
-* @providesModule MarqueeLabel
-* @flow-weak
-*/
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
     PropTypes,
-    requireNativeComponent
 } = React;
+var ReactNative = require('react-native');
+var {
+    View,
+    requireNativeComponent
+} = ReactNative;
 
 var MarqueeLabel = React.createClass({
     propTypes: {
+        ...View.propTypes,
         text : PropTypes.string.isRequired,
-        marqueeType : PropTypes.number,
-        scrollDuration : PropTypes.number,
-        fadeLength : PropTypes.number,
-        leadingBuffer : PropTypes.number,
-        trailingBuffer : PropTypes.number,
-        textColor : PropTypes.string,
-        font: PropTypes.string
+        scrollDuration : PropTypes.number, //秒
+        marqueeType : PropTypes.number, //ios
+        fadeLength : PropTypes.number, //ios
+        leadingBuffer : PropTypes.number, //ios
+        trailingBuffer : PropTypes.number, //ios
+        animationDelay : PropTypes.number, //ios
+        isRepeat : PropTypes.bool, //android
+        startPoint : PropTypes.number, //android
+        direction : PropTypes.number, //android
     },
     render: function() {
+        const {children, ...props} = this.props;
+        const nativeProps = Object.assign({}, props, {text: children});
         return (
-            <RCTMarqueeLabel  {...this.props}/>
+            <RCTMarqueeLabel  {...nativeProps}/>
         );
     }
 });
