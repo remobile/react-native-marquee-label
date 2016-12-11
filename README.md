@@ -1,5 +1,6 @@
 # React Native MarqueeLabel (remobile)
 A marquee label for react-native
+if you use js pure marquee, use remobile/react-native-marquee[ https://github.com/remobile/react-native-marquee ]
 
 ## Installation
 ```sh
