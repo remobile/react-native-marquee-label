@@ -13,6 +13,7 @@ npm install @remobile/react-native-marquee-label --save
 * Look for Header Search Paths and make sure it contains both $(SRCROOT)/../../../react-native/React as recursive.
 
 ### Installation (Android)
+* In android/settings.gradle
 ```gradle
 ...
 include ':react-native-marquee-label'
